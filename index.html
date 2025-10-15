@@ -10,7 +10,9 @@
 
 <body>
     <header>
-        <img src="poza.png" alt="Poza de profil" class="profile-photo">
+        <!-- Poza de profil -->
+        <img src="poza.png" alt="Poza de profil" class="profile-photo" id="profilePhoto">
+
         <h1>Florea Alexandru-Ionuț</h1>
         <h2>Student la Informatică</h2>
 
@@ -21,17 +23,6 @@
     <main class="container">
         <!-- Coloana stângă -->
         <aside class="left-column">
-            <section class="contact">
-                <h3>Contact</h3>
-                <ul>
-                    <li>Email: <a
-                            href="mailto:alexandru-ionut.florea@student.unitbv.ro">alexandru-ionut.florea@student.unitbv.ro</a>
-                    </li>
-                    <li>Telefon: 0760 980 939</li>
-                    <li><a href="https://github.com/Florea21" target="_blank">GitHub</a></li>
-                </ul>
-            </section>
-
             <section class="skills">
                 <h3>Competențe</h3>
                 <ul>
@@ -49,26 +40,49 @@
             <section class="education">
                 <h3>Educație</h3>
                 <ul>
-                    <li><strong>Universitatea Transilvania din Brașov</strong> – Facultatea de Matematică și Informatică
-                        (2025–prezent)</li>
+                    <li>
+                        <strong>Colegiul Național „Constantin Carabella”, Târgoviște – Profil Real,
+                            Specializarea Matematică-Informatică </strong><br>
+                        Septembrie 2019 – Iunie 2023<br>
+                        Medie Bacalaureat: 9.10
+                    </li>
+                    <li>
+                        <strong>Universitatea Transilvania din Brașov – Facultatea de Matematică și
+                            Informatică</strong><br>
+                        Octombrie 2023 – prezent
+                    </li>
                 </ul>
             </section>
 
             <section class="experience">
                 <h3>Experiență profesională</h3>
                 <ul>
-                    <li>Momentan nu am experiență profesională, dar sunt pasionat de dezvoltare web și software.</li>
+                    <li>Deși momentan nu am experiență profesională, am o mare pasiune pentru tehnologie și
+                        creativitate. Sunt pasionat de dezvoltare web și software, modelare 3D și crearea jocurilor,
+                        dedicând timp pentru a învăța și a experimenta cu proiecte personale în aceste domenii.</li>
                 </ul>
             </section>
         </section>
     </main>
 
     <footer>
+        <h3>Contact</h3>
+        <ul>
+            <li>Email: <a
+                    href="mailto:alexandru-ionut.florea@student.unitbv.ro">alexandru-ionut.florea@student.unitbv.ro</a>
+            </li>
+            <li>Telefon: +40 760 980 939</li>
+            <li>GitHub: <a href="https://github.com/Florea21" target="_blank">Vezi aici profilul meu de GitHub</a></li>
+        </ul>
         <p>&copy; 2025 Florea Alexandru-Ionuț. Toate drepturile rezervate.</p>
     </footer>
 
-    <!-- Script Night Mode -->
+    <!-- Overlay pentru poza mare -->
+    <div id="overlay"></div>
+
+    <!-- Script Night Mode + Lightbox -->
     <script>
+        // Night Mode
         const button = document.getElementById('toggle-theme');
         button.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
@@ -78,8 +92,20 @@
                 button.textContent = '🌙 Night Mode';
             }
         });
+
+        // Lightbox poza de profil
+        const profilePhoto = document.getElementById('profilePhoto');
+        const overlay = document.getElementById('overlay');
+
+        profilePhoto.addEventListener('click', () => {
+            overlay.innerHTML = `<img src="${profilePhoto.src}" alt="Poza de profil">`;
+            overlay.style.display = 'flex';
+        });
+
+        overlay.addEventListener('click', () => {
+            overlay.style.display = 'none';
+        });
     </script>
 </body>
-
 
 </html>
