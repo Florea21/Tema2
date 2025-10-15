@@ -1,4 +1,4 @@
-/* Stil general */
+/* ====== STIL GENERAL ====== */
 body {
     font-family: 'Segoe UI', Tahoma, sans-serif;
     background-color: #f4f4f4;
@@ -8,7 +8,7 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Header */
+/* ====== HEADER ====== */
 header {
     text-align: center;
     background-color: #004d99;
@@ -27,7 +27,7 @@ header h2 {
     color: #dceeff;
 }
 
-/* Poza de profil */
+/* ====== POZA DE PROFIL ====== */
 .profile-photo {
     width: 150px;
     height: 150px;
@@ -36,9 +36,34 @@ header h2 {
     display: block;
     margin: 0 auto 1rem auto;
     border: 3px solid white;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 1;
 }
 
-/* Buton Night Mode */
+/* ====== OVERLAY LIGHTBOX ====== */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    cursor: pointer;
+}
+
+#overlay img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* ====== BUTON NIGHT MODE ====== */
 #toggle-theme {
     position: absolute;
     right: 20px;
@@ -57,7 +82,7 @@ header h2 {
     background-color: #ffd633;
 }
 
-/* Layout principal */
+/* ====== LAYOUT PRINCIPAL ====== */
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -66,7 +91,7 @@ header h2 {
     gap: 2rem;
 }
 
-/* Coloana stângă */
+/* ====== COLOANA STÂNGĂ ====== */
 .left-column {
     flex: 1;
     min-width: 250px;
@@ -76,7 +101,7 @@ header h2 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Coloana dreaptă */
+/* ====== COLOANA DREAPTĂ ====== */
 .right-column {
     flex: 2;
     min-width: 300px;
@@ -86,7 +111,7 @@ header h2 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Secțiuni */
+/* ====== SECȚIUNI ====== */
 h3 {
     color: #004d99;
     border-bottom: 2px solid #004d99;
@@ -112,16 +137,65 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Footer */
+/* ====== FOOTER ====== */
 footer {
-    text-align: center;
-    background-color: #004d99;
+    background-color: #003366;
     color: white;
-    padding: 1rem;
+    padding: 2rem 1rem;
+    text-align: center;
     margin-top: 2rem;
 }
 
-/* --- 🌙 DARK MODE --- */
+footer h3 {
+    color: #ffcc00;
+    border: none;
+    margin-bottom: 1rem;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 1.5rem auto;
+    display: inline-block;
+    text-align: left;
+}
+
+footer li {
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+footer li::before {
+    content: "📧";
+    font-size: 1.1rem;
+}
+
+footer li:nth-child(2)::before {
+    content: "📱";
+}
+
+footer li:nth-child(3)::before {
+    content: "💻";
+}
+
+footer a {
+    color: #ffcc00;
+    font-weight: 500;
+}
+
+footer a:hover {
+    color: #ffd633;
+}
+
+footer p {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* ====== DARK MODE ====== */
 .dark-mode {
     background-color: #1c1c1c;
     color: #eee;
@@ -148,12 +222,25 @@ footer {
 }
 
 .dark-mode footer {
-    background-color: #222;
+    background-color: #111;
+    color: #eee;
 }
 
-/* Responsivitate */
+.dark-mode footer a {
+    color: #66b3ff;
+}
+
+/* ====== RESPONSIVITATE ====== */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
+    }
+
+    footer ul {
+        text-align: center;
+    }
+
+    footer li {
+        justify-content: center;
     }
 }
