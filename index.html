@@ -4,15 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Florea Alexandru-Ionut</title>
+    <title>CV - Florea Alexandru-Ionuț</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header>
-        <!-- Poza de profil -->
-        <img src="poza.png" alt="Poza de profil" class="profile-photo" id="profilePhoto">
-
+        <img src="poza.png" alt="Poza de profil" class="profile-photo" id="profile-photo">
         <h1>Florea Alexandru-Ionuț</h1>
         <h2>Student la Informatică</h2>
 
@@ -77,33 +75,36 @@
         <p>&copy; 2025 Florea Alexandru-Ionuț. Toate drepturile rezervate.</p>
     </footer>
 
-    <!-- Overlay pentru poza mare -->
-    <div id="overlay"></div>
+    <!-- LIGHTBOX (mărire imagine) -->
+    <div id="lightbox">
+        <img src="poza.png" alt="Poza mărită">
+    </div>
 
-    <!-- Script Night Mode + Lightbox -->
+    <!-- Script pentru Night Mode și Lightbox -->
     <script>
-        // Night Mode cu glow icon
         const button = document.getElementById('toggle-theme');
-        const profilePhoto = document.getElementById('profilePhoto');
-        const overlay = document.getElementById('overlay');
+        const body = document.body;
+        const photo = document.getElementById('profile-photo');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = lightbox.querySelector('img');
 
+        // Schimbă tema
         button.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            if (document.body.classList.contains('dark-mode')) {
-                button.innerHTML = '<span>☀️</span> Light Mode';
-            } else {
-                button.innerHTML = '<span>🌙</span> Night Mode';
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            button.innerHTML = isDark ? '<span>☀️</span> Light Mode' : '<span>🌙</span> Night Mode';
+        });
+
+        // Mărire imagine (lightbox)
+        photo.addEventListener('click', () => {
+            lightbox.style.display = 'flex';
+        });
+
+        // Închide imaginea dacă faci click în afara ei
+        lightbox.addEventListener('click', (e) => {
+            if (e.target !== lightboxImg) {
+                lightbox.style.display = 'none';
             }
-        });
-
-        // Lightbox poza de profil
-        profilePhoto.addEventListener('click', () => {
-            overlay.innerHTML = `<img src="${profilePhoto.src}" alt="Poza de profil">`;
-            overlay.style.display = 'flex';
-        });
-
-        overlay.addEventListener('click', () => {
-            overlay.style.display = 'none';
         });
     </script>
 </body>
