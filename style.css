@@ -37,14 +37,14 @@ header h2 {
     margin: 0 auto 1rem auto;
     border: 3px solid white;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
 }
 
 .profile-photo:hover {
     transform: scale(1.05);
 }
 
-/* ====== LIGHTBOX pentru poza ====== */
+/* ====== LIGHTBOX ====== */
 #lightbox {
     display: none;
     position: fixed;
@@ -56,58 +56,72 @@ header h2 {
     background: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
+    animation: fadeIn 0.3s ease;
 }
 
 #lightbox img {
     max-width: 85%;
     max-height: 85%;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
     animation: zoomIn 0.3s ease;
 }
 
-@keyframes zoomIn {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
-/* ====== BUTON NIGHT/LIGHT MODE ====== */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ====== BUTON NIGHT MODE ====== */
 #toggle-theme {
     position: absolute;
-    right: 15px;
-    top: 15px;
-    background-color: #ffea70; /* galben pal */
+    right: 20px;
+    top: 20px;
+    background-color: #ffe066;
+    /* galben mai pal */
     color: #333;
     border: none;
-    padding: 0.35rem 0.8rem; /* buton mai mic */
+    padding: 0.35rem 0.7rem;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
     font-size: 0.9rem;
-    transition: background-color 0.3s, color 0.3s, transform 0.2s;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    animation: glow 2s infinite alternate;
 }
 
 #toggle-theme:hover {
-    background-color: #fff066; /* puțin mai închis la hover */
-    transform: scale(1.05);
+    background-color: #ffea85;
+    box-shadow: 0 0 12px 2px rgba(255, 255, 150, 0.6);
 }
 
-/* Glow animat pentru iconițe 🌙 ☀️ */
-#toggle-theme span {
-    display: inline-block;
-    animation: neon-glow 1.5s infinite alternate;
-}
+@keyframes glow {
+    from {
+        box-shadow: 0 0 6px rgba(255, 255, 150, 0.6);
+    }
 
-@keyframes neon-glow {
-    0% {
-        text-shadow: 0 0 2px #fff, 0 0 4px #fffa65, 0 0 8px #fffa65;
-    }
-    50% {
-        text-shadow: 0 0 4px #fff, 0 0 10px #fffa65, 0 0 18px #fffa65;
-    }
-    100% {
-        text-shadow: 0 0 2px #fff, 0 0 4px #fffa65, 0 0 8px #fffa65;
+    to {
+        box-shadow: 0 0 16px rgba(255, 255, 150, 1);
     }
 }
 
@@ -265,6 +279,13 @@ footer p {
         flex-direction: column;
     }
 
+    #toggle-theme {
+        top: 10px;
+        right: 10px;
+        padding: 0.25rem 0.6rem;
+        font-size: 0.8rem;
+    }
+
     footer ul {
         text-align: center;
     }
@@ -273,13 +294,3 @@ footer p {
         justify-content: center;
     }
 }
-
-@media (max-width: 600px) {
-    #toggle-theme {
-        right: 10px;
-        top: 10px;
-        padding: 0.25rem 0.6rem;
-        font-size: 0.8rem;
-    }
-}
-
