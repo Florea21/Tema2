@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Florea Alexandru-Ionut</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <img src="poza.png" alt="Poza de profil" class="profile-photo">
+        <h1>Florea Alexandru-Ionuț</h1>
+        <h2>Student la Informatică</h2>
+
+        <!-- Buton Night Mode -->
+        <button id="toggle-theme">🌙 Night Mode</button>
+    </header>
+
+    <main class="container">
+        <!-- Coloana stângă -->
+        <aside class="left-column">
+            <section class="contact">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Email: <a
+                            href="mailto:alexandru-ionut.florea@student.unitbv.ro">alexandru-ionut.florea@student.unitbv.ro</a>
+                    </li>
+                    <li>Telefon: 0760 980 939</li>
+                    <li><a href="https://github.com/Florea21" target="_blank">GitHub</a></li>
+                </ul>
+            </section>
+
+            <section class="skills">
+                <h3>Competențe</h3>
+                <ul>
+                    <li>HTML, CSS, JavaScript</li>
+                    <li>PHP & MySQL</li>
+                    <li>C++</li>
+                    <li>Rezolvare de probleme & logică</li>
+                    <li>Comunicare & lucru în echipă</li>
+                </ul>
+            </section>
+        </aside>
+
+        <!-- Coloana dreaptă -->
+        <section class="right-column">
+            <section class="education">
+                <h3>Educație</h3>
+                <ul>
+                    <li><strong>Universitatea Transilvania din Brașov</strong> – Facultatea de Matematică și Informatică
+                        (2025–prezent)</li>
+                </ul>
+            </section>
+
+            <section class="experience">
+                <h3>Experiență profesională</h3>
+                <ul>
+                    <li>Momentan nu am experiență profesională, dar sunt pasionat de dezvoltare web și software.</li>
+                </ul>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Florea Alexandru-Ionuț. Toate drepturile rezervate.</p>
+    </footer>
+
+    <!-- Script Night Mode -->
+    <script>
+        const button = document.getElementById('toggle-theme');
+        button.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                button.textContent = '☀️ Light Mode';
+            } else {
+                button.textContent = '🌙 Night Mode';
+            }
+        });
+    </script>
+</body>
+
+</html>
