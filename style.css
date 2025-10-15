@@ -75,9 +75,32 @@ header h2 {
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 1rem;
 }
 
+/* Glow animat iconiță */
+#toggle-theme span {
+    display: inline-block;
+    animation: neon-glow 1.5s infinite alternate;
+}
+
+/* Keyframes neon glow */
+@keyframes neon-glow {
+    0% {
+        text-shadow: 0 0 2px #fff, 0 0 5px #fffa65, 0 0 10px #fffa65, 0 0 15px #fffa65;
+    }
+
+    50% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fffa65, 0 0 20px #fffa65, 0 0 30px #fffa65;
+    }
+
+    100% {
+        text-shadow: 0 0 2px #fff, 0 0 5px #fffa65, 0 0 10px #fffa65, 0 0 15px #fffa65;
+    }
+}
+
+/* Hover buton */
 #toggle-theme:hover {
     background-color: #ffd633;
 }
