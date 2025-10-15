@@ -17,7 +17,7 @@
         <h2>Student la Informatică</h2>
 
         <!-- Buton Night Mode -->
-        <button id="toggle-theme">🌙 Night Mode</button>
+        <button id="toggle-theme"><span>🌙</span> Night Mode</button>
     </header>
 
     <main class="container">
@@ -82,21 +82,21 @@
 
     <!-- Script Night Mode + Lightbox -->
     <script>
-        // Night Mode
+        // Night Mode cu glow icon
         const button = document.getElementById('toggle-theme');
+        const profilePhoto = document.getElementById('profilePhoto');
+        const overlay = document.getElementById('overlay');
+
         button.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
             if (document.body.classList.contains('dark-mode')) {
-                button.textContent = '☀️ Light Mode';
+                button.innerHTML = '<span>☀️</span> Light Mode';
             } else {
-                button.textContent = '🌙 Night Mode';
+                button.innerHTML = '<span>🌙</span> Night Mode';
             }
         });
 
         // Lightbox poza de profil
-        const profilePhoto = document.getElementById('profilePhoto');
-        const overlay = document.getElementById('overlay');
-
         profilePhoto.addEventListener('click', () => {
             overlay.innerHTML = `<img src="${profilePhoto.src}" alt="Poza de profil">`;
             overlay.style.display = 'flex';
